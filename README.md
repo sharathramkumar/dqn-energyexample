@@ -37,7 +37,7 @@ The rewards are structured as follows:
 The following plots show the results of training the agent
 
 Random agent:
-![Random Agent](plots\\random_agent.png)
+![Random Agent](plots/random_agent.png)
 
 Trained agent:
-![Trained Agent](plots\\trained_agent.png)
+![Trained Agent](plots/trained_agent.png)
