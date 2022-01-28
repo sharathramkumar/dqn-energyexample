@@ -12,24 +12,28 @@ The states are described as a set of 3 floating point numbers:
 - Current Energy Demand
 - Available Solar Energy
 - Available Coal Energy
+
 The state is obtained as a function of the time of day every hour, by imposing a small random variation on a template profile.
 
 The actions which can be taken by the agent are represented by a set of 11 discrete numbers.
-Action ID 0 : Use 0% solar, 100% coal
-Action ID 1 : Use 10% solar, 90% coal
-..
-Action ID 10 : Use 100% solar, 0% coal 
+
+- Action ID 0 : Use 0% solar, 100% coal
+- Action ID 1 : Use 10% solar, 90% coal
+- ..
+- Action ID 10 : Use 100% solar, 0% coal 
 
 The percentages are calculated with respect to the energy demand. 
 For example, suppose the energy demand is 40 units, with 25 units of availble solar capacity and 50 units of available coal power capacity. Then,
-Action ID 0 : 0 units of solar, 40 units of coal energy
-Action ID 1 : 4 units of solar, 36 units of coal energy
-..
-Action ID 10 : 25 units of solar (since that is the max capacity), 0 units of coal energy
+
+- Action ID 0 : 0 units of solar, 40 units of coal energy
+- Action ID 1 : 4 units of solar, 36 units of coal energy
+- ..
+- Action ID 10 : 25 units of solar (since that is the max capacity), 0 units of coal energy
 
 As such, it is possible for actions to lead to energy deficits, which the agent should learn to avoid.
 
 The rewards are structured as follows:
+
 - +15 reward if the energy requirement is met
 - Penalty of (-2 * balance), where balance is the magnitude of deficit (or surplus) production
 - Penalty of (0.5 * coal_used), where coal_used is the amount of energy generated using coal power plants
